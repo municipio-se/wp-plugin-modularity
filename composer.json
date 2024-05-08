@@ -1,5 +1,5 @@
 {
-    "name": "helsingborg-stad/modularity",
+    "name": "municipio-lts/wp-plugin-modularity-2024",
     "description": "Modular component system for WordPress",
     "type": "wordpress-plugin",
     "minimum-stability": "dev",
@@ -20,6 +20,10 @@
         {
             "name": "Karl Pettersson",
             "email": "karl.pettersson@helsingborg.se"
+        },
+        {
+            "name": "Whitespace",
+            "email": "code@whitespace.se"
         }
     ],
     "repositories": [
@@ -59,6 +63,7 @@
         }
     },
     "extra": {
+        "installer-name": "modularity",
         "installer-paths": {
             "vendor/{$vendor}/{$name}/": [
                 "vendor:wpackagist-plugin"
