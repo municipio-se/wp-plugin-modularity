@@ -3,6 +3,7 @@
     "description": "Modular component system for WordPress",
     "type": "wordpress-plugin",
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "license": "MIT",
     "authors": [
         {
@@ -41,7 +42,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "composer/installers": "~1.0",
+        "composer/installers": "^2.2",
         "helsingborg-stad/acf-export-manager": ">=1.0.0",
         "johannheyne/advanced-custom-fields-table-field": "dev-master",
         "clark-nikdel-powell/post-type-select-for-acf": "dev-master",
