@@ -204,8 +204,10 @@ class Search
 
         if (is_array($post)) {
             $post['post_content'] .= $rendered;
+            $post['post_content_filtered'] .= $rendered;
         } else {
             $post->post_content .= $rendered;
+            $post->post_content_filtered .= $rendered;
         }
 
         return $post;
