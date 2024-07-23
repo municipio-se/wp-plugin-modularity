@@ -7,7 +7,9 @@ class Search
     public function __construct()
     {
 
-        add_action('wp', array($this, 'moduleSearch'));
+        add_action("admin_init", function() {
+            add_action('wp', array($this, 'moduleSearch'));
+        });
 
         add_filter('posts_join', array($this, 'moduleSearchModuleDescriptionJoin'));
         add_filter('posts_search', array($this, 'moduleSearchModuleDescription'));
