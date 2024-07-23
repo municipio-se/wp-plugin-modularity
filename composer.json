@@ -44,12 +44,7 @@
         "php": "^8.0",
         "composer/installers": "^2.2",
         "helsingborg-stad/acf-export-manager": ">=1.0.0",
-        "johannheyne/advanced-custom-fields-table-field": "dev-master",
-        "clark-nikdel-powell/post-type-select-for-acf": "dev-master",
-        "jeradin/acf-website-field": "dev-master",
         "ooksanen/acf-focuspoint": "^1.2.1",
-        "jeradin/acf-dynamic-table-field": "dev-master",
-        "enshrined/svg-sanitize": "dev-master",
         "wpackagist-plugin/acf-extended": "0.8.9.4",
         "helsingborg-stad/acf-select-image-field": "~1.4.3"
     },
@@ -67,7 +62,9 @@
         "installer-name": "modularity",
         "installer-paths": {
             "vendor/{$vendor}/{$name}/": [
-                "vendor:wpackagist-plugin"
+                "vendor:wpackagist-plugin",
+                "type:wordpress-plugin",
+                "type:wordpress-muplugin"
             ]
         }
     },
@@ -76,7 +73,12 @@
         "test:coverage": "XDEBUG_MODE=coverage phpunit --testdox"
     },
     "suggest": {
-        "helsingborg-stad/component-library": "Required for modules in modularity"
+        "clark-nikdel-powell/post-type-select-for-acf": "Required by Modularity",
+        "enshrined/svg-sanitize": "Required by Modularity",
+        "helsingborg-stad/component-library": "Required for modules in modularity",
+        "jeradin/acf-dynamic-table-field": "Required by Modularity",
+        "jeradin/acf-website-field": "Required by Modularity",
+        "johannheyne/advanced-custom-fields-table-field": "Required by Modularity"
     },
     "version": "6.16.5",
     "require-dev": {

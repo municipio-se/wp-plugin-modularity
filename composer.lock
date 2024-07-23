@@ -4,40 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "45de24989e2f0477b12eb610e39b0a1e",
+    "content-hash": "211968cb40ee2d2e19417645493c8b25",
     "packages": [
-        {
-            "name": "clark-nikdel-powell/post-type-select-for-acf",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/helsingborg-stad/Post-Type-Select-for-ACF.git",
-                "reference": "f6910f1c1c793774c54fab2659d8c53d6cc2fdca"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/helsingborg-stad/Post-Type-Select-for-ACF/zipball/f6910f1c1c793774c54fab2659d8c53d6cc2fdca",
-                "reference": "f6910f1c1c793774c54fab2659d8c53d6cc2fdca",
-                "shasum": ""
-            },
-            "default-branch": true,
-            "type": "wordpress-muplugin",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Glenn Welser",
-                    "email": "info@cnpagency.com"
-                }
-            ],
-            "description": "Post type select field for ACF",
-            "support": {
-                "source": "https://github.com/helsingborg-stad/Post-Type-Select-for-ACF/tree/1.0.0"
-            },
-            "time": "2023-09-22T12:58:47+00:00"
-        },
         {
             "name": "composer/installers",
             "version": "v2.3.0",
@@ -185,52 +153,6 @@
             "time": "2024-06-24T20:46:46+00:00"
         },
         {
-            "name": "enshrined/svg-sanitize",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/darylldoyle/svg-sanitizer.git",
-                "reference": "15668e029c9f3076fd85cae1c5de92fcea5ca2bf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/darylldoyle/svg-sanitizer/zipball/15668e029c9f3076fd85cae1c5de92fcea5ca2bf",
-                "reference": "15668e029c9f3076fd85cae1c5de92fcea5ca2bf",
-                "shasum": ""
-            },
-            "require": {
-                "ext-dom": "*",
-                "ext-libxml": "*",
-                "php": "^5.6 || ^7.0 || ^8.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.7 || ^6.5 || ^8.5"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "enshrined\\svgSanitize\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Daryll Doyle",
-                    "email": "daryll@enshrined.co.uk"
-                }
-            ],
-            "description": "An SVG sanitizer for PHP",
-            "support": {
-                "issues": "https://github.com/darylldoyle/svg-sanitizer/issues",
-                "source": "https://github.com/darylldoyle/svg-sanitizer/tree/master"
-            },
-            "time": "2024-06-18T10:47:19+00:00"
-        },
-        {
             "name": "helsingborg-stad/acf-export-manager",
             "version": "1.0.12",
             "source": {
@@ -296,102 +218,6 @@
                 "source": "https://github.com/helsingborg-stad/acf-image-select-field/tree/1.4.4"
             },
             "time": "2024-01-15T07:22:45+00:00"
-        },
-        {
-            "name": "jeradin/acf-dynamic-table-field",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/helsingborg-stad/acf-dynamic-table-field.git",
-                "reference": "786b022625f6770e339fc276a8c50058d825ef71"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/helsingborg-stad/acf-dynamic-table-field/zipball/786b022625f6770e339fc276a8c50058d825ef71",
-                "reference": "786b022625f6770e339fc276a8c50058d825ef71",
-                "shasum": ""
-            },
-            "default-branch": true,
-            "type": "wordpress-muplugin",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0"
-            ],
-            "description": "A Dynamic Fable field for Advanced Custom Fields",
-            "homepage": "https://github.com/Jeradin/acf-dynamic-table-field",
-            "keywords": [
-                "acf",
-                "plugin",
-                "wordpress"
-            ],
-            "support": {
-                "source": "https://github.com/helsingborg-stad/acf-dynamic-table-field/tree/master"
-            },
-            "time": "2024-03-04T16:11:28+00:00"
-        },
-        {
-            "name": "jeradin/acf-website-field",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/helsingborg-stad/acf-website-field.git",
-                "reference": "17914161e4acfa8273e6804c7a9dd44c65a41581"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/helsingborg-stad/acf-website-field/zipball/17914161e4acfa8273e6804c7a9dd44c65a41581",
-                "reference": "17914161e4acfa8273e6804c7a9dd44c65a41581",
-                "shasum": ""
-            },
-            "default-branch": true,
-            "type": "wordpress-muplugin",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Geet Jacobs",
-                    "email": "geet@meowwolf.com"
-                }
-            ],
-            "description": "Website field for ACF",
-            "support": {
-                "source": "https://github.com/helsingborg-stad/acf-website-field/tree/master"
-            },
-            "time": "2023-09-22T12:59:17+00:00"
-        },
-        {
-            "name": "johannheyne/advanced-custom-fields-table-field",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/helsingborg-stad/advanced-custom-fields-table-field.git",
-                "reference": "1807a23c4baca0c147529b23f8a4223633369be2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/helsingborg-stad/advanced-custom-fields-table-field/zipball/1807a23c4baca0c147529b23f8a4223633369be2",
-                "reference": "1807a23c4baca0c147529b23f8a4223633369be2",
-                "shasum": ""
-            },
-            "default-branch": true,
-            "type": "wordpress-muplugin",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Johann Heyne",
-                    "email": "mail@johannheyne.de"
-                }
-            ],
-            "description": "Table field for ACF",
-            "support": {
-                "source": "https://github.com/helsingborg-stad/advanced-custom-fields-table-field/tree/master"
-            },
-            "time": "2023-10-18T14:34:10+00:00"
         },
         {
             "name": "ooksanen/acf-focuspoint",
@@ -2636,11 +2462,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "johannheyne/advanced-custom-fields-table-field": 20,
-        "clark-nikdel-powell/post-type-select-for-acf": 20,
-        "jeradin/acf-website-field": 20,
-        "jeradin/acf-dynamic-table-field": 20,
-        "enshrined/svg-sanitize": 20,
         "10up/wp_mock": 20
     },
     "prefer-stable": true,
