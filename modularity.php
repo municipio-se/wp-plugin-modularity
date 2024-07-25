@@ -21,6 +21,7 @@ define('MODULARITY_MODULE_URL', MODULARITY_URL . '/source/php/Module/');
 
 add_action('plugins_loaded', function () {
     load_plugin_textdomain('modularity', false, plugin_basename(dirname(__FILE__)) . '/languages');
+    load_muplugin_textdomain('modularity', plugin_basename(dirname(__FILE__)) . '/languages');
 });
 
 // Autoload from plugin
