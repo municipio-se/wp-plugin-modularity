@@ -1122,8 +1122,8 @@ msgid "Describe the contents of this Iframe (not shown)."
 msgstr "Beskriv innehållet i denna Iframe (endast skärmläsare)."
 
 #: source/php/AcfFields/php/mod-image.php:13
-msgid "Allowed file types: jpg, png, gif"
-msgstr "Tillåtna filtyper: jpg, png, gif"
+msgid "Allowed file types: jpg, png, gif, webp"
+msgstr "Tillåtna filtyper: jpg, png, gif, webp"
 
 #: source/php/AcfFields/php/mod-image.php:34
 msgid "Image caption"

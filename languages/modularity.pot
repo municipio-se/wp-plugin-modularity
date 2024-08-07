@@ -1151,7 +1151,7 @@ msgid "Describe the contents of this Iframe (not shown)."
 msgstr ""
 
 #: source/php/AcfFields/php/mod-image.php:25
-msgid "Allowed file types: jpg, png, gif"
+msgid "Allowed file types: jpg, png, gif, webp"
 msgstr ""
 
 #: source/php/AcfFields/php/mod-image.php:41

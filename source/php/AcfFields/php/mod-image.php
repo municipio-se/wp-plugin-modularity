@@ -1,7 +1,9 @@
-<?php 
+<?php
 
-if (function_exists('acf_add_local_field_group')) {
-    acf_add_local_field_group(array(
+
+if (function_exists('acf_add_local_field_group')) {
+
+    acf_add_local_field_group(array(
     'key' => 'group_570770ab8f064',
     'title' => __('Image', 'modularity'),
     'fields' => array(
@@ -10,7 +12,7 @@
             'label' => __('Image', 'modularity'),
             'name' => 'mod_image_image',
             'type' => 'image',
-            'instructions' => __('Allowed file types: jpg, png, gif', 'modularity'),
+            'instructions' => __('Allowed file types: jpg, png, gif, webp', 'modularity'),
             'required' => 1,
             'conditional_logic' => 0,
             'wrapper' => array(
@@ -27,7 +29,7 @@
             'max_width' => '',
             'max_height' => '',
             'max_size' => '',
-            'mime_types' => 'jpg, png, gif',
+            'mime_types' => 'jpg, png, gif, webp',
         ),
         1 => array(
             'key' => 'field_587604df2975f',
@@ -253,4 +255,5 @@
     'acfe_meta' => '',
     'acfe_note' => '',
 ));
-}
+
+}
