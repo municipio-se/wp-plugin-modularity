@@ -256,6 +256,13 @@ class Posts extends \Modularity\Module
 
         $class = '\Modularity\Module\Posts\TemplateController\\' . $template . 'Template';
 
+        /**
+         * Filter the template controller class
+         * @hook Modularity/Module/Posts/TemplateController/{$template}
+         * @param string $class The class name
+         */
+        $class = apply_filters("Modularity/Module/Posts/TemplateController/{$template}", $class);
+
         $this->data['meta']['posts_display_as'] = $this->replaceDeprecatedTemplate($this->data['posts_display_as']);
 
         if (class_exists($class)) {
