@@ -22,20 +22,20 @@ class GetArchiveUrl
         if(is_array($fields)) {
             $fields = (object) $fields;
         }
+        
+        $archiveUrl = false;
 
-        if (empty($postType) || !isset($fields->archive_link) || !$fields->archive_link) {
-            return false;
+        if (!empty($postType) && isset($fields->archive_link) && $fields->archive_link) {
+            if ($postType == 'post') {
+                $archiveUrl = $this->getPostsArchiveUrl() ?: false;
+            } else {
+                $archiveUrl = $this->getPostTypeArchiveUrl($postType) ?: false;
+            }
         }
 
-        if ($postType == 'post' && $archiveUrl = $this->getPostsArchiveUrl()) {
-            return $archiveUrl;
-        }
+        $archiveUrl = apply_filters("Modularity/Module/Posts/archiveUrl", $archiveUrl, $postType, $fields);
 
-        if($archiveUrl = $this->getPostTypeArchiveUrl($postType)) {
-            return $archiveUrl;
-        }
-
-        return false;
+        return $archiveUrl;
     }
 
     /**
