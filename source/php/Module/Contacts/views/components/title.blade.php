@@ -37,7 +37,8 @@
             'attributeList' => ['itemprop' => 'administration-unit'],
             'classList'     => [
                 'u-margin__bottom--0',
-                'u-color__text--darkest'
+                'u-color__text--darkest',
+                'u-italic'
             ]
         ])
             {{ $contact['administration_unit'] }}
