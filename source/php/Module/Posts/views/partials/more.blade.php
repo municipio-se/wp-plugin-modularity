@@ -6,6 +6,7 @@
           'style' => 'filled',
           'href' => $archive_link_url,
           'classList' => ['u-flex-grow--1@xs', 'u-margin__x--auto'],
+          'attributeList' => ['aria-describedby' => 'mod-posts-' . $ID . '-label']
         ])
         @endbutton
     </div>
