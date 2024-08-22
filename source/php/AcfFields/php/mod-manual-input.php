@@ -1,7 +1,9 @@
-<?php 
+<?php
 
-if (function_exists('acf_add_local_field_group')) {
-    acf_add_local_field_group(array(
+
+if (function_exists('acf_add_local_field_group')) {
+
+    acf_add_local_field_group(array(
     'key' => 'group_64ff22b117e2c',
     'title' => __('Manual Input Data', 'modularity'),
     'fields' => array(
@@ -442,7 +444,7 @@
                     'label' => __('Link', 'modularity'),
                     'name' => 'link',
                     'aria-label' => '',
-                    'type' => 'url',
+                    'type' => 'link',
                     'instructions' => '',
                     'required' => 0,
                     'conditional_logic' => array(
@@ -603,4 +605,5 @@
     'acfe_meta' => '',
     'acfe_note' => '',
 ));
-}
+
+}
