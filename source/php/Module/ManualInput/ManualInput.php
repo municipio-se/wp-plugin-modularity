@@ -28,7 +28,7 @@ class ManualInput extends \Modularity\Module
         $fields         = $this->getFields();
         $displayAs      = $this->getTemplateToUse($fields);
         $this->template = $displayAs;
-      
+
         $data['manualInputs']   = [];
         $data['columns']        = !empty($fields['columns']) ? $fields['columns'] . '@md' : 'o-grid-4@md';
         $data['context']        = ['module.manual-input.' . $this->template];
@@ -37,7 +37,7 @@ class ManualInput extends \Modularity\Module
         $imageSize              = $this->getImageSize($displayAs);
 
         $data['accordionColumnTitles'] = $this->createAccordionTitles(
-            isset($fields['accordion_column_titles']) ? $fields['accordion_column_titles'] : [], 
+            isset($fields['accordion_column_titles']) ? $fields['accordion_column_titles'] : [],
             isset($fields['accordion_column_marking']) ? $fields['accordion_column_marking'] : ''
         );
 
@@ -47,6 +47,9 @@ class ManualInput extends \Modularity\Module
                     return !empty($value) || $value === false;
                 });
                 $arr                            = array_merge($this->getManualInputDefaultValues(), $input);
+                if (!empty($arr['link']) && is_array($arr['link'])) {
+                    $arr['link'] = $arr['link']['url'] ?? '';
+                }
                 $arr['isHighlighted']           = $this->canBeHighlighted($fields, $index);
                 $arr['image']                   = $this->getImageData($arr['image'], $imageSize);
                 $arr['accordion_column_values'] = $this->createAccordionTitles($arr['accordion_column_values'], $arr['title']);
@@ -102,7 +105,7 @@ class ManualInput extends \Modularity\Module
         if ($shouldBeHighlighted) {
             return $this->getHighlightedColumnSize($columnSize) . '@md';
         }
-        
+
         return $columnSize . '@md';
     }
 
@@ -113,7 +116,7 @@ class ManualInput extends \Modularity\Module
      * @param int $index The index of the current input field.
      * @return bool Returns true if the input field can be highlighted, false otherwise.
      */
-    private function canBeHighlighted(array $fields, int $index) 
+    private function canBeHighlighted(array $fields, int $index)
     {
         return $index === 0 && !empty($fields['highlight_first_input']) && in_array($this->template, ['card', 'block', 'segment']);
     }
@@ -143,7 +146,7 @@ class ManualInput extends \Modularity\Module
      *
      * @return string The highlighted view.
      */
-    private function getHighlightedView(): string 
+    private function getHighlightedView(): string
     {
         switch ($this->template) {
             case "segment":
@@ -159,7 +162,7 @@ class ManualInput extends \Modularity\Module
 
     /**
      * Get all data attached to the image.
-     * 
+     *
      * @param array $fields All the acf fields
      * @param array|string $size Array containing height and width OR predefined size as a string.
      * @return array
@@ -175,20 +178,20 @@ class ManualInput extends \Modularity\Module
 
     /**
      * Decides the size of the image based on view
-     * 
+     *
      * @param string $displayAs The name of the template/view.
      * @return array
      */
     private function getImageSize($displayAs) {
         switch ($displayAs) {
-            case "segment": 
+            case "segment":
                 return [800, 550];
             case "block":
                 return [500, 500];
-            case "collection": 
+            case "collection":
             case "box":
                 return [300, 300];
-            default: 
+            default:
                 return [400, 225];
         }
     }
@@ -245,10 +248,10 @@ class ManualInput extends \Modularity\Module
      * @return string The template name to use for rendering.
      */
     public function getTemplateToUse($fields) {
-        $templateName = !empty($fields['display_as']) ? $fields['display_as'] : 'card'; 
+        $templateName = !empty($fields['display_as']) ? $fields['display_as'] : 'card';
         return apply_filters(
-            'Modularity/Module/ManualInput/Template', 
-            $templateName 
+            'Modularity/Module/ManualInput/Template',
+            $templateName
         );
     }
 
@@ -268,7 +271,7 @@ class ManualInput extends \Modularity\Module
         if (file_exists($path)) {
             return $this->template . ".blade.php";
         }
-        
+
         return 'base.blade.php';
     }
 
