@@ -452,13 +452,17 @@ class Editor extends \Modularity\Options
             $postStatuses[] = 'private';
         }
 
-        // Get module posts
-        $modulesPosts = get_posts(array(
-            'posts_per_page' => -1,
-            'post_type' => $enabled,
-            'include' => $moduleIds,
-            'post_status' => $postStatuses
-        ));
+        // Get module posts only if $moduleIds is not empty
+        if (!empty($moduleIds)) {
+            $modulesPosts = get_posts(array(
+                'posts_per_page' => -1,
+                'post_type' => $enabled,
+                'include' => $moduleIds,
+                'post_status' => $postStatuses
+            ));
+        } else {
+            $modulesPosts = [];
+        }
 
         // Add module id's as keys in the array
         if (!empty($modulesPosts)) {
