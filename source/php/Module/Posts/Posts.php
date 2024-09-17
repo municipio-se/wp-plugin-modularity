@@ -28,7 +28,7 @@ class Posts extends \Modularity\Module
         $this->nameSingular     = __('Posts', 'modularity');
         $this->namePlural       = __('Posts', 'modularity');
         $this->description      = __('Outputs selected posts in specified layout', 'modularity');
-        
+
         // Saves meta data to expandable list posts
         new \Modularity\Module\Posts\Helper\AddMetaToExpandableList();
 
@@ -38,10 +38,10 @@ class Posts extends \Modularity\Module
         //Add full width data to view
         add_filter('Modularity/Block/Data', array($this, 'blockData'), 50, 3);
         add_filter(
-            'acf/fields/post_object/query/name=posts_data_posts', 
+            'acf/fields/post_object/query/name=posts_data_posts',
             array($this, 'removeUnwantedPostTypesFromManuallyPicked'), 10, 3
         );
-        
+
         // Helpers
         $this->getPostsHelper = new GetPostsHelper();
         $this->archiveUrlHelper = new ArchiveUrlHelper();
@@ -64,6 +64,7 @@ class Posts extends \Modularity\Module
         $data['posts_date_source']      = $this->fields['posts_date_source'] ?? false;
         $data['posts_data_post_type']   = $this->fields['posts_data_post_type'] ?? false;
         $data['posts_data_source']      = $this->fields['posts_data_source'] ?? false;
+        $data['archive_link']           = $this->fields['archive_link'] ?? false;
 
         $data['posts'] = $this->getPosts();
 
@@ -190,7 +191,7 @@ class Posts extends \Modularity\Module
      * @param int $id The ID of the module.
      * @return array The modified arguments.
      */
-    public function removeUnwantedPostTypesFromManuallyPicked($args, $field, $id) 
+    public function removeUnwantedPostTypesFromManuallyPicked($args, $field, $id)
     {
         $skipablePostTypes = ['attachment'];
 
@@ -220,13 +221,13 @@ class Posts extends \Modularity\Module
      * @return false|string
      */
     public function template()
-    {   
+    {
         $template = $this->data['posts_display_as'] ?? 'list';
 
         if (!empty($this->fields['show_as_slider']) && in_array($this->fields['posts_display_as'], $this->sliderCompatibleLayouts, true)) {
             $template = 'slider';
         }
-        
+
         $this->getTemplateData($this->replaceDeprecatedTemplate($template));
 
         return apply_filters(
@@ -288,7 +289,7 @@ class Posts extends \Modularity\Module
             return $array;
         }
 
-        return json_decode(json_encode($array)); 
+        return json_decode(json_encode($array));
     }
 
     /**
@@ -343,12 +344,12 @@ class Posts extends \Modularity\Module
         //TODO: Remove [Start feature: Manual Input]. Remove whole method and move to GetPost Helper
         if ($this->fields['posts_data_source'] == 'input') {
             $stripLinksFromContent = in_array(
-                $this->fields['posts_display_as'], 
-                ['items', 'index', 'news', 'collection']) ?? 
+                $this->fields['posts_display_as'],
+                ['items', 'index', 'news', 'collection']) ??
                 false;
 
             return (array) $this->getManualInputPosts(
-                $this->fields['data'], 
+                $this->fields['data'],
                 $stripLinksFromContent
             );
         }
