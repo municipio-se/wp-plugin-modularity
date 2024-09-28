@@ -292,11 +292,14 @@ class Module
      */
     public function template()
     {
+        $template = false;
         if (!$this->isLegacy && !empty($this->slug)) {
-            return $this->slug . '.blade.php';
+            $template = $this->slug . '.blade.php';
         }
 
-        return false;
+        $template = apply_filters('Modularity/Module/Template', $template, $this->slug, $this->isLegacy, $this);
+
+        return $template;
     }
 
     /**
