@@ -3,7 +3,7 @@ name: Build Assets and Update Projects (main)
 on:
   push:
     branches:
-      - 'lts/*'
+      - main
 
 permissions:
   contents: write
