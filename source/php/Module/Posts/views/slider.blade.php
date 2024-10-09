@@ -21,7 +21,6 @@
         'customButtons' => $postsDisplayAs != 'segment' ? 'js-custom-buttons-' . $sliderId : false,
         'containerAware' => true,
         'attributeList' => [
-            'aria-labelledby' => 'mod-slider-' . $sliderId . '-label',
             'data-slides-per-page' => $slider->slidesPerPage
         ]
     ])

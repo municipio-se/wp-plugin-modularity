@@ -1,8 +1,5 @@
 @card([
     'heading' => false,
-    'attributeList' => [
-        'aria-labelledby' => 'mod-posts-' . $ID . '-label'
-    ],
     'context' => 'module.posts.list'
 ])
 @if (!$hideTitle && !empty($postTitle))

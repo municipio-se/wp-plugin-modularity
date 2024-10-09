@@ -1,7 +1,4 @@
 @card([
-    'attributeList' => [
-        'aria-labelledby' => 'mod-video-' . $ID . '-label'
-    ],
     'context' => 'module.video',
     'classList' => ['c-card__video']
 ])

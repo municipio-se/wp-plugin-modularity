@@ -9,7 +9,7 @@
     @endtypography
 @endif
 
-<div class="o-grid" aria-labelledby={{'mod-text-' . $ID .'-label'}}>
+<div class="o-grid">
     @foreach ($contacts as $contact)
         <div class="o-grid-12 {{apply_filters('Municipio/Controller/Archive/GridColumnClass', $columns)}}">
             @card([

@@ -3,7 +3,6 @@
     'classList'     => [$classes],
     'attributeList' => [
         'js-filter-container'   => $uID,
-        "aria-labelledby"       => 'mod-fileslist-' . $ID .'-label',
     ],
     'context' => 'module.files.list'
 ])

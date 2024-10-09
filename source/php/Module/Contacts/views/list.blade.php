@@ -1,7 +1,4 @@
 @card([
-    'attributeList' => [
-        'aria-labelledby' => 'mod-text-' . $ID .'-label'
-    ],
     'context' => 'module.contacts.list'
 ])
     @if (!$hideTitle && !empty($postTitle))

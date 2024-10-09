@@ -1,7 +1,4 @@
 @card([
-    'attributeList' => [
-        'aria-labelledby' => 'mod-inlaylist' . $ID . '-label'
-    ],
     'context' => 'module.inlay.list'
 ])
 

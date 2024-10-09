@@ -4,7 +4,6 @@
             'heading' => false,
             'attributeList' => [
                 'js-filter-container' => $ID,
-                'aria-labelledby' => 'mod-posts-' . $ID . '-label'
             ],
             'context' => 'module.posts.expandablelist'
         ])
