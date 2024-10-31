@@ -68,7 +68,7 @@ class ManualInput extends \Modularity\Module
      */
     private function getManualInputDefaultValues(): array
     {
-        return [
+        return apply_filters('Modularity/Module/ManualInput/DefaultValues', [
             'title'                     => null,
             'content'                   => null,
             'link'                      => null,
@@ -76,7 +76,7 @@ class ManualInput extends \Modularity\Module
             'image'                     => null,
             'accordion_column_values'   => [],
             'box_icon'                  => null
-        ];
+        ]);
     }
 
     /**
