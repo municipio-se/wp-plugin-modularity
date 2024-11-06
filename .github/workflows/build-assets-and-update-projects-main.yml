@@ -57,8 +57,6 @@ jobs:
     strategy:
       matrix:
         repo: 
-          - whitespace-se/arvidsjaur.se
-          - whitespace-se/new.trelleborg.se-inspiration
           - whitespace-se/eslov.se-2024
           - whitespace-se/hoor.se-2024
     steps:
