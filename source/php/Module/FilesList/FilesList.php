@@ -118,6 +118,12 @@ class FilesList extends \Modularity\Module
         return round(pow(1024, $base - floor($base)), $precision) . ' ' . $suffixes[floor($base)];
     }
 
+     public function template()
+    {
+        $template = apply_filters('Modularity/Module/Template', $template, $this->slug, $this->isLegacy, $this);
+        return $template;
+    }
+
     /**
      * Available "magic" methods for modules:
      * init()            What to do on initialization
