@@ -32,8 +32,8 @@ class Contacts extends \Modularity\Module
 
         if(!empty($data['contacts'])) {
             $data['contacts'] = $this->prepareContacts($data['contacts']);
-        } 
-        
+        }
+
         if (!isset($data['columns'])) {
             $data['columns'] = 'o-grid-12@md';
         }
@@ -228,7 +228,10 @@ class Contacts extends \Modularity\Module
                     break;
             }
 
-            return $view . '.blade.php';
+            $template = $view . '.blade.php';
+            $template = apply_filters('Modularity/Module/Template', $template, $this->slug, $this->isLegacy, $this);
+
+            return $template;
         }
 
         // Single contact template
