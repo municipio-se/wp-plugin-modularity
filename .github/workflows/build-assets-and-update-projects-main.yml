@@ -56,9 +56,14 @@ jobs:
     needs: build
     strategy:
       matrix:
-        repo: 
+        repo:
           - whitespace-se/eslov.se-2024
           - whitespace-se/hoor.se-2024
+          - whitespace-se/kriswebb.malmstad.se-2024
+          - whitespace-se/demo1.malmstad.se-2024
+          - whitespace-se/demo2.malmstad.se-2024
+          - whitespace-se/trelleborg.se-2024
+          - whitespace-se/arvidsjaur.se
     steps:
       - name: Checkout ${{ matrix.repo }} repo
         uses: actions/checkout@v3
@@ -82,7 +87,7 @@ jobs:
                 }
               }
             }
-        run: composer update
+        run: composer update municipio-lts/wp-plugin-modularity-2024
 
       - name: Delete remote branch if it exists
         working-directory: repo_${{ matrix.repo }}/wordpress
