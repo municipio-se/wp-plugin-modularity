@@ -10,6 +10,7 @@ class GetPosts
         if (!empty($posts)) {
             foreach ($posts as &$post) {
                 $data['taxonomiesToDisplay'] = !empty($fields['taxonomy_display']) ? $fields['taxonomy_display'] : [];
+                $data = apply_filters("Modularity/Module/Posts/Helper/getPosts/data", $data, $fields, $post);
 
                 if (class_exists('\Municipio\Helper\Post')) {
                     if (in_array($fields['posts_display_as'], ['expandable-list'])) {
