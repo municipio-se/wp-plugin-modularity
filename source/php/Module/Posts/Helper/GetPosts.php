@@ -32,6 +32,7 @@ class GetPosts
     private function getPostArgs(array $fields)
     {
         $metaQuery  = false;
+        $taxQuery = [];
         $orderby    = !empty($fields['posts_sort_by']) ? $fields['posts_sort_by'] : 'date';
         $order      = !empty($fields['posts_sort_order']) ? $fields['posts_sort_order'] : 'desc';
 
@@ -82,12 +83,31 @@ class GetPosts
             $taxValues = (array)$fields['posts_taxonomy_value'];
 
             foreach ($taxValues as $term) {
-                $getPostsArgs['tax_query'][] = [
+                $taxQuery[] = [
                     'taxonomy' => $taxType,
                     'field' => 'slug',
                     'terms' => $term
                 ];
             }
+        }
+
+        // Add new taxonomy filtering logic
+        if (!empty($fields['mod_posts_filtering'])) {
+            foreach ($fields['mod_posts_filtering'] as $filter) {
+                $taxQuery[] = [
+                    'taxonomy' => $filter['taxonomy'],
+                    'field' => 'id',
+                    'terms' => $filter["term_{$filter['taxonomy']}"],
+                    'operator' => $filter['operator'],
+                ];
+            }
+        }
+
+        // Apply the modularity filter hook for customizations
+        $taxQuery = apply_filters('modularity/mod_posts_tax_query', $taxQuery, $fields, $this->ID ?? null);
+
+        if (!empty($taxQuery)) {
+            $getPostsArgs['tax_query'] = $taxQuery;
         }
 
         // Meta filter

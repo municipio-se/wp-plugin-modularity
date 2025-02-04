@@ -98,6 +98,13 @@ class Posts extends \Modularity\Module
             $data['filters']['filter[' . $taxType . ']'] = $taxValues;
         }
 
+        // Add new taxonomy filtering logic
+        if (!empty($this->fields['mod_posts_filtering'])) {
+            foreach ($this->fields['mod_posts_filtering'] as $filter) {
+                $data['filters']['filter[' . $filter['taxonomy'] . ']'] = $filter["term_{$filter['taxonomy']}"];
+            }
+        }
+
         //Get archive link
         $data['archive_link_url'] = $this->archiveUrlHelper->getArchiveUrl(
             $data['posts_data_post_type'],
@@ -105,7 +112,7 @@ class Posts extends \Modularity\Module
         );
 
         //Add filters to archive link
-        if($data['archive_link_url'] && is_array($data['filters']) && !empty($data['filters'])) {
+        if ($data['archive_link_url'] && is_array($data['filters']) && !empty($data['filters'])) {
             $data['archive_link_url'] .= "?" . http_build_query($data['filters']);
         }
 
