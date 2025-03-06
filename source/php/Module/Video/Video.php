@@ -398,7 +398,13 @@ class Video extends \Modularity\Module
         $data = $this->getFields();
         $data['id']         = uniqid('embed');
         if ($data['type'] == 'embed') {
-            $data['embedCode'] = $this->getEmbedMarkup($data['embed_link']);
+            if (is_string($data['embed_link']) &&
+            preg_match("/\bplay\.mediaflowpro\b/", $data['embed_link'])){
+                // For videos from mediaflow
+                $data['embedCode'] = $data['embed_link'];
+            } else {
+                $data['embedCode'] = $this->getEmbedMarkup($data['embed_link']);
+            }
         }
         
         // Image
