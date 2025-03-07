@@ -446,7 +446,6 @@ class Video extends \Modularity\Module
          */
         $markup = apply_filters(
             'Modularity/Display/mod-video/pre_getEmbedMarkup',
-            '',
             $embedLink,
         );
         if($markup) {
