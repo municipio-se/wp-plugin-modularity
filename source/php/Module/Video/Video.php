@@ -398,13 +398,7 @@ class Video extends \Modularity\Module
         $data = $this->getFields();
         $data['id']         = uniqid('embed');
         if ($data['type'] == 'embed') {
-            if (is_string($data['embed_link']) &&
-            preg_match("/\bplay\.mediaflowpro\b/", $data['embed_link'])){
-                // For videos from mediaflow
-                $data['embedCode'] = $data['embed_link'];
-            } else {
-                $data['embedCode'] = $this->getEmbedMarkup($data['embed_link']);
-            }
+            $data['embedCode'] = $this->getEmbedMarkup($data['embed_link']);
         }
         
         // Image
@@ -445,6 +439,19 @@ class Video extends \Modularity\Module
      */
     private function getEmbedMarkup($embedLink)
     {
+        /**
+         * Filter the embed markup before it is fetched
+         * @param string $markup The markup
+         * @param string $embedLink The embed link
+         */
+        $markup = apply_filters(
+            'Modularity/Display/mod-video/pre_getEmbedMarkup',
+            '',
+            $embedLink,
+        );
+        if($markup) {
+            return $markup;
+        }
         return wp_oembed_get(
             $embedLink,
             array(
