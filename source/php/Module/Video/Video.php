@@ -439,6 +439,19 @@ class Video extends \Modularity\Module
      */
     private function getEmbedMarkup($embedLink)
     {
+        /**
+         * Filter the embed markup before it is fetched
+         * @param string $markup The markup
+         * @param string $embedLink The embed link
+         */
+        $markup = apply_filters(
+            'Modularity/Display/mod-video/pre_getEmbedMarkup',
+            '',
+            $embedLink,
+        );
+        if($markup) {
+            return $markup;
+        }
         return wp_oembed_get(
             $embedLink,
             array(
