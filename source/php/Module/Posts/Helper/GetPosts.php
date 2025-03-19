@@ -6,6 +6,17 @@ class GetPosts
 {
     public function getPosts(array $fields)
     {
+        /**
+         * Filter the posts before they are fetched. Return anything other than
+         * null to skip the default behavior.
+         * @param array|null $posts
+         * @param array $fields
+         * @return array|null
+         */
+        $posts = apply_filters('Modularity/Module/Posts/Helper/pre_getPosts', null, $fields);
+        if(!is_null($posts)) {
+            return $posts;
+        }
         $posts = (array) get_posts($this->getPostArgs($fields));
         if (!empty($posts)) {
             foreach ($posts as &$post) {
