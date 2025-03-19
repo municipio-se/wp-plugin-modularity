@@ -17,6 +17,7 @@
     'postType' => $post->postType,
     'icon' => $post->termIcon,
     'attributeList' => array_merge($post->attributeList, []),
+    'asTemplate' => $post->asTemplate,
 ])
     @includeWhen(!empty($post->callToActionItems['floating']), 'partials.floating')
 @endcard
