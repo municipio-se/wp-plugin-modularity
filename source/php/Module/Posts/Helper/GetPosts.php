@@ -35,9 +35,18 @@ class GetPosts
                     }
                 }
             }
-            return $posts;
+        } else {
+            $posts = [];
         }
-        return [];
+        
+        /**
+         * Filter the posts after they are fetched.
+         * @param array $posts
+         * @param array $fields
+         * @return array
+         */
+        $posts = apply_filters('Modularity/Module/Posts/Helper/getPosts', $posts, $fields);
+        return $posts;
     }
 
     private function getPostArgs(array $fields)
