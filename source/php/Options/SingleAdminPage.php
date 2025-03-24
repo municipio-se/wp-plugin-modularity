@@ -36,7 +36,7 @@ class SingleAdminPage implements \Modularity\Options\AdminPageInterface
     public function addAdminPage(): void
     {
         foreach ($this->postTypes as $postType) {
-            $postTypeUrlParam = '?post_type=' . $postType;
+            $postTypeUrlParam = $postType === 'post' ? '' : '?post_type=' . $postType;
             $transcribedPostType = \Modularity\Editor::pageForPostTypeTranscribe('single-' . $postType);
             $editorLink = "options.php?page=modularity-editor&id={$transcribedPostType}";
 
