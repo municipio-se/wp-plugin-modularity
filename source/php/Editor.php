@@ -578,7 +578,7 @@ class Editor extends \Modularity\Options
         }
 
         // Post id
-        $postId = !empty($_REQUEST['id']) ? (int) $_REQUEST['id'] : null;
+        $postId = !empty($_REQUEST['id']) ? $_REQUEST['id'] : null;
         // Check if post id is valid
         if (empty($postId)) {
             return trigger_error('Invalid post id. Please contact system administrator.');
@@ -599,7 +599,7 @@ class Editor extends \Modularity\Options
      * Saves post modules
      * @return boolean
      */
-    public function savePost(int $postId)
+    public function savePost(mixed $postId)
     {
         if (is_numeric($postId)) {
             return $this->saveAsPostMeta($postId);
