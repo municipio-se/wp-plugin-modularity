@@ -1,5 +1,8 @@
 @card([
-    'context' => 'module.text.box'
+    'context' => 'module.text.box',
+        'attributeList' => [
+        'style' => !empty($box_color) ? 'background-color: ' . $box_color : null
+    ]
 ])
     @if (empty($hideTitle) && !empty($postTitle))
         <div class="c-card__header">
