@@ -93,7 +93,9 @@ class Rss extends \Modularity\Module
         while (stristr($link, 'http') != $link) {
             $link = substr($link, 1);
         }
-        $link = esc_url(strip_tags($link));
+
+        // Strip tags, then decode HTML entities like &amp;
+        $link = html_entity_decode(strip_tags($link), ENT_QUOTES | ENT_HTML5, 'UTF-8');
 
         return $link;
     }
