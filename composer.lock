@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "211968cb40ee2d2e19417645493c8b25",
+    "content-hash": "75bbd0349449a12d9af2315b84559591",
     "packages": [
         {
             "name": "composer/installers",
@@ -255,24 +255,6 @@
                 }
             ],
             "time": "2023-10-12T05:52:37+00:00"
-        },
-        {
-            "name": "wpackagist-plugin/acf-extended",
-            "version": "0.8.9.4",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/acf-extended/",
-                "reference": "tags/0.8.9.4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/acf-extended.0.8.9.4.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/acf-extended/"
         }
     ],
     "packages-dev": [
@@ -2457,6 +2439,24 @@
                 }
             ],
             "time": "2024-03-03T12:36:25+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/acf-extended",
+            "version": "0.9.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/acf-extended/",
+                "reference": "tags/0.9.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/acf-extended.0.9.1.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/acf-extended/"
         }
     ],
     "aliases": [],
