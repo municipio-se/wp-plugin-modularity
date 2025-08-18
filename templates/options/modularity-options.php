@@ -37,7 +37,7 @@
     </form>
 </div>
 
-<script>
+<script<?php echo wp_sanitize_script_attributes(apply_filters('wp_inline_script_attributes', [])); ?>>
     jQuery(document).ready(function () {
         if (typeof postboxes !== 'undefined') {
             postboxes.add_postbox_toggles(pagenow);

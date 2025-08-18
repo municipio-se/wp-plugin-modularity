@@ -266,7 +266,7 @@ class App
 
         add_action('admin_head', function () {
             echo "
-                <script>
+                <script" . wp_sanitize_script_attributes(apply_filters('wp_inline_script_attributes', [])) . ">
                     var admin_url = '" . admin_url() . "';
                 </script>
             ";
@@ -274,7 +274,7 @@ class App
 
         add_action('admin_head', function () {
             echo "
-                <script>
+                <script" . wp_sanitize_script_attributes(apply_filters('wp_inline_script_attributes', [])) .">
                     if(typeof $ === 'undefined' && typeof jQuery !== 'undefined') {
                         var $ = jQuery;
                     }
@@ -299,7 +299,7 @@ class App
                 }
 
                 echo "
-                    <script>
+                    <script" . wp_sanitize_script_attributes(apply_filters('wp_inline_script_attributes', [])) . ">
                         var modularity_post_id = " . $id . "
                     </script>
                 ";

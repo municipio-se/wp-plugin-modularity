@@ -452,7 +452,7 @@ class ModuleManager
             echo '<textarea style="margin-top:10px; overflow: hidden;width: 100%;height:30px;background:#f9f9f9;border:1px solid #ddd;padding:5px;">[modularity id="' . $post->ID . '"]</textarea>';
             echo '</p>';
 
-            echo "<script>
+            echo "<script" . wp_sanitize_script_attributes(apply_filters('wp_inline_script_attributes', [])) . ">
                 jQuery(document).ready(function ($) {
                     $('.modularity-inline-template').prop('checked', true);
 
