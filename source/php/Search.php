@@ -121,7 +121,9 @@ class Search
             if ($module->post_type === 'mod-wpwidget') {
                 continue;
             }
-
+            if($module->hidden == 'true') {
+                continue;
+            }
             $markup = \Modularity\App::$display->outputModule($module, array('edit_module' => false), array(), false);
 
             if(!empty($markup)) {
