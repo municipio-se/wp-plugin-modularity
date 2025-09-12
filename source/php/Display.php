@@ -511,8 +511,11 @@ class Display
         $classes = array(
             'modularity-' . $module->post_type,
             'modularity-' . $module->post_type . '-' . $module->ID,
-            (property_exists($module, 'columnWidth')) ? $module->columnWidth :  'o-grid-12'
         );
+
+        $width_class = (property_exists($module, 'columnWidth')) ? $module->columnWidth :  'o-grid-12';
+        $width_class = apply_filters('Modularity/Display/BeforeModule::widthClass', $width_class, $module);
+        $classes[] = $width_class;
 
         //Hide module if preview
         if (is_preview() && $module->hidden) {
