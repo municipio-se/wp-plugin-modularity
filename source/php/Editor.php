@@ -553,6 +553,8 @@ class Editor extends \Modularity\Options
 
         $module->hideTitle = $hideTitle;
 
+        do_action('Modularity/Editor/getModule', $module, $moduleArgs);
+
         return $module;
     }
 
