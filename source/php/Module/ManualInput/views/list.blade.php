@@ -13,7 +13,6 @@
         ])
             @foreach ($manualInputs as $input)
                 @collection__item([
-                    'displayIcon' => true,
                     'icon' => 'arrow_forward',
                     'link' => $input['link']
                 ])

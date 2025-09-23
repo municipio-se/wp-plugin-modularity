@@ -19,7 +19,6 @@
                         @foreach ($prepareList as $post)
                             @if ($post['link'] && $post['title'])
                                 @collection__item([
-                                    'displayIcon' => true,
                                     'icon' => 'arrow_forward',
                                     'link' => $post['link']
                                 ])
