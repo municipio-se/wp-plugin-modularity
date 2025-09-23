@@ -18,10 +18,15 @@ define('MODULARITY_URL', plugins_url('', __FILE__));
 define('MODULARITY_TEMPLATE_PATH', MODULARITY_PATH . 'templates/');
 define('MODULARITY_MODULE_PATH', MODULARITY_PATH . 'source/php/Module/');
 define('MODULARITY_MODULE_URL', MODULARITY_URL . '/source/php/Module/');
+define('MODULARITY_IS_MU', strpos(MODULARITY_PATH, WPMU_PLUGIN_DIR) === 0);
+define("MODULARITY_LANGUAGES_PATH", plugin_basename(dirname(__FILE__)) . "/languages");
 
-add_action('plugins_loaded', function () {
-    load_plugin_textdomain('modularity', false, plugin_basename(dirname(__FILE__)) . '/languages');
-    load_muplugin_textdomain('modularity', plugin_basename(dirname(__FILE__)) . '/languages');
+add_action('init', function () {
+    if(MODULARITY_IS_MU) {
+        load_muplugin_textdomain('modularity', MODULARITY_LANGUAGES_PATH);
+    } else {
+        load_plugin_textdomain('modularity', false, MODULARITY_LANGUAGES_PATH);
+    }
 });
 
 // Autoload from plugin
