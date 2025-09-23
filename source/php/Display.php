@@ -242,12 +242,15 @@ class Display
         $archiveSlug = \Modularity\Helper\Wp::getArchiveSlug();
 
         if (isset($wp_query->query['modularity_template']) && !empty($wp_query->query['modularity_template'])) {
+            $context = $wp_query->query['modularity_template'];
             $this->modules = \Modularity\Editor::getPostModules($wp_query->query['modularity_template']);
             $this->options = get_option('modularity_' . $wp_query->query['modularity_template'] . '_sidebar-options');
         } elseif ($archiveSlug) {
+            $context = $archiveSlug;
             $this->modules = \Modularity\Editor::getPostModules($archiveSlug);
             $this->options = get_option('modularity_' . $archiveSlug . '_sidebar-options');
         } elseif ($realPostID) {
+            $context = Wp::getSingleSlug();
             $this->modules = \Modularity\Editor::getPostModules($realPostID);
             $this->options = get_option('modularity-sidebar-options');
             
@@ -256,7 +259,11 @@ class Display
             if( !empty($postTypeModules) ) {
                 $this->modules = $this->mergeModules($this->modules, $postTypeModules);
             }
+        } else {
+            $context = false;
         }
+
+        $this->modules = apply_filters('Modularity/Display/modules', $this->modules, $this->options, $context);
 
         add_action('dynamic_sidebar_before', array($this, 'outputBefore'));
         add_action('dynamic_sidebar_after', array($this, 'outputAfter'));
