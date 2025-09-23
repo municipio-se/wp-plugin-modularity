@@ -449,6 +449,16 @@ class Display
      */
     public function outputModule($module, $args = array(), $moduleSettings = array(), $echo = true)
     {
+        $output = apply_filters('Modularity/Display/pre_outputModule', false, $module, $args, $moduleSettings);
+        if($output !== false) {
+            if($echo) {
+                echo $output;
+                return true;
+            } else {
+                return $output;
+            }
+        }
+        
         if (!$module instanceof \WP_Post) {
             return false;
         }
