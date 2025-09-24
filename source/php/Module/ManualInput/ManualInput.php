@@ -11,7 +11,7 @@ class ManualInput extends \Modularity\Module
     public $blockSupports = array(
         'align' => ['full']
     );
-    private $template;
+    public $template;
 
     public function init()
     {
@@ -270,10 +270,14 @@ class ManualInput extends \Modularity\Module
         $path = __DIR__ . "/views/" . $this->template . ".blade.php";
 
         if (file_exists($path)) {
-            return $this->template . ".blade.php";
+            $template = $this->template . ".blade.php";
+        } else {
+            $template = 'base.blade.php';
         }
 
-        return 'base.blade.php';
+        $template = apply_filters('Modularity/Module/Template', $template, $this->slug, $this->isLegacy, $this);
+
+        return $template;
     }
 
     /**
