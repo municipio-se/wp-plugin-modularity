@@ -55,6 +55,7 @@ class ManualInput extends \Modularity\Module
                 $arr['accordion_column_values'] = $this->createAccordionTitles($arr['accordion_column_values'], $arr['title']);
                 $arr['view']                    = $this->getInputView($arr['isHighlighted']);
                 $arr['columnSize']              = $this->getInputColumnSize($fields, $arr['isHighlighted']);
+                $arr = apply_filters('Modularity/Module/ManualInput/data/item', $arr, $input, $fields, $this);
                 $arr                            = \Municipio\Helper\FormatObject::camelCase($arr);
                 $data['manualInputs'][]         = (array) $arr;
             }
