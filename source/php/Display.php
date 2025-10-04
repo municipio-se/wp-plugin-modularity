@@ -252,7 +252,7 @@ class Display
         } elseif ($realPostID) {
             $context = Wp::getSingleSlug();
             $this->modules = \Modularity\Editor::getPostModules($realPostID);
-            $this->options = get_option('modularity-sidebar-options');
+            $this->options = get_post_meta($realPostID, 'modularity-sidebar-options', true);
             
             $postTypeModules = $this->setupModulesForSingle();
             
