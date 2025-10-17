@@ -14,11 +14,13 @@ class Post
             return $archive;
         }
 
-        global $post;
+        if(is_null($id)) {
+            $id = $_GET['id'] ?? null;
+        }
 
-        // If $post is empty try to fetc post from querystring
-        if (!$post && isset($_GET['id']) && is_numeric($_GET['id'])) {
-            $post = get_post($_GET['id']);
+        $post = null;
+        if (isset($id) && is_numeric($id)) {
+            $post = get_post($id);
 
             if (!$post) {
                 throw new \Error('The requested post was not found.');
@@ -26,7 +28,7 @@ class Post
         }
 
         if (!$post) {
-            return isset($_GET['id']) && !empty($_GET['id']) ? $_GET['id'] : $archive;
+            return isset($id) && !empty($id) ? $id : $archive;
         }
 
         // If post is set, fetch the template
