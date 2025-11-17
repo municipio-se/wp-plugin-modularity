@@ -1,5 +1,5 @@
 {
-    "name": "municipio-lts/wp-plugin-modularity-2024",
+    "name": "municipio-se/wp-plugin-modularity",
     "description": "Modular component system for WordPress",
     "type": "wordpress-plugin",
     "minimum-stability": "dev",
