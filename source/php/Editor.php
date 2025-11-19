@@ -362,7 +362,9 @@ class Editor extends \Modularity\Options
                     throw new \Error('Get paramter ID is empty.');
                 }
 
-                $options = get_post_meta($_GET['id'], 'modularity-sidebar-options', true);
+                // Sanitize GET parameter
+                $post_id = absint($_GET['id']);
+                $options = get_post_meta($post_id, 'modularity-sidebar-options', true);
             }
         }
 
@@ -627,7 +629,8 @@ class Editor extends \Modularity\Options
 
         // Save/remove sidebar options
         if (isset($_POST['modularity_sidebar_options'])) {
-            update_post_meta($postId, 'modularity-sidebar-options', $_POST['modularity_sidebar_options']);
+            $sanitized_options = $this->sanitizeSidebarOptions($_POST['modularity_sidebar_options']);
+            update_post_meta($postId, 'modularity-sidebar-options', $sanitized_options);
         } else {
             delete_post_meta($postId, 'modularity-sidebar-options');
         }
@@ -657,10 +660,11 @@ class Editor extends \Modularity\Options
         $optionName = $key . '_sidebar-options';
 
         if (isset($_POST['modularity_sidebar_options'])) {
+            $sanitized_options = $this->sanitizeSidebarOptions($_POST['modularity_sidebar_options']);
             if (get_option($optionName)) {
-                update_option($optionName, $_POST['modularity_sidebar_options']);
+                update_option($optionName, $sanitized_options);
             } else {
-                add_option($optionName, $_POST['modularity_sidebar_options'], '', 'no');
+                add_option($optionName, $sanitized_options, '', 'no');
             }
         } else {
             delete_option($optionName);
@@ -795,10 +799,39 @@ class Editor extends \Modularity\Options
                 foreach ($sidebar as &$module) {
 
                     $module['hidden'] = isset($module['hidden']) && $module['hidden'] == 'hidden';
+
+                    // Sanitize postid field
+                    if (isset($module['postid'])) {
+                        $module['postid'] = absint($module['postid']);
+                    }
                 }
             }
         }
 
         return $sidebars;
+    }
+
+    /**
+     * Sanitize sidebar options data
+     * @param $options
+     * @return array
+     */
+    public function sanitizeSidebarOptions($options)
+    {
+        if (!is_array($options)) {
+            return array();
+        }
+
+        $sanitized = array();
+        foreach ($options as $key => $value) {
+            $sanitized_key = sanitize_key($key);
+            if (is_array($value)) {
+                $sanitized[$sanitized_key] = $this->sanitizeSidebarOptions($value);
+            } else {
+                $sanitized[$sanitized_key] = sanitize_text_field($value);
+            }
+        }
+
+        return $sanitized;
     }
 }
