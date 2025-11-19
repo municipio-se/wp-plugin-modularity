@@ -49,8 +49,10 @@ class Editor extends \Modularity\Options
     public function adminBar()
     {
         if (isset($_GET['id'])) {
-            if (is_numeric($_GET['id']) && $_GET['id'] > 0) {
-                $post = get_post($_GET['id']);
+            // Sanitize and validate the ID parameter
+            $getId = absint($_GET['id']);
+            if ($getId > 0) {
+                $post = get_post($getId);
 
                 if (!$post) {
                     return;
@@ -78,7 +80,8 @@ class Editor extends \Modularity\Options
                 wp_reset_postdata();
             } else {
                 global $archive;
-                $archive = $_GET['id'];
+                // Sanitize archive ID (may be string)
+                $archive = sanitize_text_field($_GET['id']);
 
                 self::$isEditing = array(
                     'id' => null,
