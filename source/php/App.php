@@ -161,7 +161,8 @@ class App
 
     public function currentUrl($querystring = true)
     {
-        $url =  '//' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        // Use WordPress functions to safely get current URL
+        $url = home_url(add_query_arg(null, null));
 
         if (!$querystring) {
             $url = preg_replace('/\?(.*)/', '', $url);
