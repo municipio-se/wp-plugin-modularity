@@ -16,12 +16,17 @@ class Ajax
      */
     public function getPost()
     {
+        // Verify nonce for security
+        check_ajax_referer('modularity-ajax-nonce', 'nonce');
+
         if (!isset($_POST['id']) || empty($_POST['id']) || is_null($_POST['id'])) {
             echo 'false';
             wp_die();
         }
 
-        echo json_encode(get_post($_POST['id']));
+        // Sanitize post ID
+        $post_id = absint($_POST['id']);
+        echo json_encode(get_post($post_id));
         wp_die();
     }
 
@@ -31,12 +36,17 @@ class Ajax
      */
     public function getPostModules($includeMeta = false)
     {
+        // Verify nonce for security
+        check_ajax_referer('modularity-ajax-nonce', 'nonce');
+
         if (!isset($_POST['id']) || empty($_POST['id']) || is_null($_POST['id'])) {
             echo 'false';
             wp_die();
         }
 
-        $postModules = \Modularity\Editor::getPostModules($_POST['id']);
+        // Sanitize post ID
+        $post_id = absint($_POST['id']);
+        $postModules = \Modularity\Editor::getPostModules($post_id);
 
         foreach ($postModules as $postModule) {
             if (!empty($postModule['modules'])) {
