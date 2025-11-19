@@ -797,12 +797,24 @@ class Editor extends \Modularity\Options
         foreach ($sidebars as &$sidebar) {
             if (!empty($sidebar) && is_array($sidebar)) {
                 foreach ($sidebar as &$module) {
+                    // Sanitize common module fields
+                    if (isset($module['postid'])) {
+                        $module['postid'] = absint($module['postid']);
+                    }
+
+                    if (isset($module['columnWidth'])) {
+                        $module['columnWidth'] = sanitize_text_field($module['columnWidth']);
+                    }
 
                     $module['hidden'] = isset($module['hidden']) && $module['hidden'] == 'hidden';
 
-                    // Sanitize postid field
-                    if (isset($module['postid'])) {
-                        $module['postid'] = absint($module['postid']);
+                    // Sanitize any other fields recursively
+                    foreach ($module as $key => &$value) {
+                        if (!in_array($key, ['postid', 'columnWidth', 'hidden']) && is_string($value)) {
+                            $value = sanitize_text_field($value);
+                        } elseif (is_array($value)) {
+                            $value = map_deep($value, 'sanitize_text_field');
+                        }
                     }
                 }
             }
