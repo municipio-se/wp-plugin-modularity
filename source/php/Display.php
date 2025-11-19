@@ -641,8 +641,8 @@ class Display
 
         return '
             <div class="modularity-edit-module">
-                <a href="' . admin_url('post.php?' . http_build_query($linkParameters)) . '">
-                    ' . __('Edit module', 'modularity') . ': ' . $module->data['post_type_name'] .  '
+                <a href="' . esc_url(admin_url('post.php?' . http_build_query($linkParameters))) . '">
+                    ' . esc_html(__('Edit module', 'modularity')) . ': ' . esc_html($module->data['post_type_name']) .  '
                 </a>
             </div>
         ';
