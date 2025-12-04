@@ -16,9 +16,6 @@ class Ajax
      */
     public function getPost()
     {
-        // Verify nonce for security
-        check_ajax_referer('modularity-ajax-nonce', 'nonce');
-
         if (!isset($_POST['id']) || empty($_POST['id']) || is_null($_POST['id'])) {
             echo 'false';
             wp_die();
@@ -36,9 +33,6 @@ class Ajax
      */
     public function getPostModules($includeMeta = false)
     {
-        // Verify nonce for security
-        check_ajax_referer('modularity-ajax-nonce', 'nonce');
-
         if (!isset($_POST['id']) || empty($_POST['id']) || is_null($_POST['id'])) {
             echo 'false';
             wp_die();
