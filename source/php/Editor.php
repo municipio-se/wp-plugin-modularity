@@ -105,12 +105,16 @@ class Editor extends \Modularity\Options
     {
         global $post;
 
-        if (!$post && !isset($_GET['page_for'])) {
-            return;
-        }
-
         if (!$post && isset($_GET['page_for']) && !empty($_GET['page_for'])) {
             $post = get_post($_GET['page_for']);
+        }
+
+        if (!$post && ($_GET['page'] ?? null) === 'modularity-editor' && isset($_GET['id']) && !empty($_GET['id'])) {
+            $post = get_post($_GET['id']);
+        }
+
+        if (!$post) {
+            return;
         }
 
         $modulesEditorId = false;
