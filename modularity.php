@@ -93,5 +93,35 @@ add_action('plugins_loaded', function () {
 
 // Start application
 add_action('plugins_loaded', function () {
-    new Modularity\App();
+    if (class_exists('acf_pro') || class_exists('ACF')) {
+        new Modularity\App();
+    } else {
+        if (file_exists(MODULARITY_PATH . 'plugins/acf/acf.php')) {
+            require_once MODULARITY_PATH . 'plugins/acf/acf.php';
+            new Modularity\App();
+        } else {
+            add_action('admin_notices', function () {
+                echo '<div class="notice error"><p>' .
+                __('To get the full expirience of the <strong>Modularity</strong> plugin, please activate the <a href="http://www.advancedcustomfields.com/pro/" target="_blank">Advanced Custom Fields Pro</a> plugin.', 'modularity') .
+                '</p></div>';
+            });
+
+            // Dummy ACF functions to prevent crash
+            if (!function_exists('get_field')) { function get_field() { return false; } }
+            if (!function_exists('the_field')) { function the_field() { } }
+            if (!function_exists('get_fields')) { function get_fields() { return false; } }
+            if (!function_exists('have_rows')) { function have_rows() { return false; } }
+            if (!function_exists('the_row')) { function the_row() { return false; } }
+            if (!function_exists('get_sub_field')) { function get_sub_field() { return false; } }
+            if (!function_exists('acf_add_local_field_group')) { function acf_add_local_field_group() { } }
+            if (!function_exists('acf_add_local_field')) { function acf_add_local_field() { } }
+            if (!function_exists('acf_add_options_page')) { function acf_add_options_page() { } }
+            if (!function_exists('acf_add_options_sub_page')) { function acf_add_options_sub_page() { } }
+            if (!function_exists('acf_register_block_type')) { function acf_register_block_type() { } }
+            if (!function_exists('get_field_object')) { function get_field_object() { return false; } }
+            if (!function_exists('acf_get_setting')) { function acf_get_setting() { return false; } }
+            if (!function_exists('acf_register_location_type')) { function acf_register_location_type() { } }
+            if (!function_exists('acf_maybe_get_field')) { function acf_maybe_get_field() { return false; } }
+        }
+    }
 }, 20);

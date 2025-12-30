@@ -1,6 +1,6 @@
 # Modularity Plugin
 
-This plugin is an LTS version of the [Modularity plugin](https://github.com/helsingborg-stad/Modularity).
+This plugin is a [Municipio LTS](https://github.com/municipio-se/municipio-lts) version of the [Modularity plugin](https://github.com/helsingborg-stad/Modularity).
 
 ## Changes in this Fork
 
@@ -17,6 +17,7 @@ Module management has been enhanced with submenu support for single post modules
 This fork adds extensive WordPress hooks for enhanced customization:
 
 **Filters:**
+
 - `Modularity/Module/Posts/TemplateController/{$template}` - Modify posts module template controller
 - `Modularity/Module/Posts/archiveUrl` - Customize posts module archive URL
 - `Modularity/Module/Template` - Modify module templates
@@ -30,6 +31,7 @@ This fork adds extensive WordPress hooks for enhanced customization:
 - `Modularity/Module/ManualInput/data/item` - Modify manual input item data
 
 **Actions:**
+
 - `Modularity/Editor/getModule` - Hook into module editor retrieval
 
 ## Installation

@@ -24,7 +24,9 @@ class Acf
     public function includeAcf()
     {
         if (!(class_exists('acf_pro') || class_exists('ACF'))) {
-            require_once MODULARITY_PATH . 'plugins/acf/acf.php';
+            if (file_exists(MODULARITY_PATH . 'plugins/acf/acf.php')) {
+                require_once MODULARITY_PATH . 'plugins/acf/acf.php';
+            }
 
             add_action('admin_notices', function () {
                 echo '<div class="notice error"><p>' .
