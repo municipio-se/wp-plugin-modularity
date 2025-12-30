@@ -1,87 +1,87 @@
 {
-    "name": "municipio/wp-plugin-modularity",
-    "description": "Modular component system for WordPress",
-    "type": "wordpress-plugin",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Kristoffer Svanmark",
-            "email": "kristoffer.svanmark@lexiconitkonsult.se"
-        },
-        {
-            "name": "Sebastian Thulin",
-            "email": "sebastian.thulin@helsingborg.se"
-        },
-        {
-            "name": "Nikolas Ramstedt",
-            "email": "rikolas.ramstedt@helsingborg.se"
-        },
-        {
-            "name": "Karl Pettersson",
-            "email": "karl.pettersson@helsingborg.se"
-        },
-        {
-            "name": "Whitespace",
-            "email": "code@whitespace.se"
-        }
-    ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/helsingborg-stad/acf-export-manager.git"
-        },
-        {
-            "type": "composer",
-            "url": "https://wpackagist.org",
-            "only": [
-                "wpackagist-plugin/*"
-            ]
-        }
-    ],
-    "require": {
-        "php": "^8.0",
-        "composer/installers": "^2.2",
-        "helsingborg-stad/acf-export-manager": ">=1.0.0",
-        "ooksanen/acf-focuspoint": "^1.2.1",
-        "helsingborg-stad/acf-select-image-field": "~1.4.3"
+  "name": "municipio/wp-plugin-modularity",
+  "description": "Modular component system for WordPress",
+  "type": "wordpress-plugin",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Kristoffer Svanmark",
+      "email": "kristoffer.svanmark@lexiconitkonsult.se"
     },
-    "autoload": {
-        "psr-4": {
-            "Modularity\\": "source/php/"
-        }
+    {
+      "name": "Sebastian Thulin",
+      "email": "sebastian.thulin@helsingborg.se"
     },
-    "config": {
-        "allow-plugins": {
-            "composer/installers": true
-        }
+    {
+      "name": "Nikolas Ramstedt",
+      "email": "rikolas.ramstedt@helsingborg.se"
     },
-    "extra": {
-        "installer-name": "modularity",
-        "installer-paths": {
-            "vendor/{$vendor}/{$name}/": [
-                "vendor:wpackagist-plugin",
-                "type:wordpress-plugin",
-                "type:wordpress-muplugin"
-            ]
-        }
+    {
+      "name": "Karl Pettersson",
+      "email": "karl.pettersson@helsingborg.se"
     },
-    "scripts": {
-        "test": "phpunit --testdox --no-coverage",
-        "test:coverage": "XDEBUG_MODE=coverage phpunit --testdox"
-    },
-    "suggest": {
-        "clark-nikdel-powell/post-type-select-for-acf": "Required by Modularity",
-        "enshrined/svg-sanitize": "Required by Modularity",
-        "helsingborg-stad/component-library": "Required for modules in modularity",
-        "jeradin/acf-dynamic-table-field": "Required by Modularity",
-        "jeradin/acf-website-field": "Required by Modularity",
-        "johannheyne/advanced-custom-fields-table-field": "Required by Modularity"
-    },
-    "require-dev": {
-        "10up/wp_mock": "dev-trunk#1.0.1",
-        "php-mock/php-mock-mockery": "^1.4",
-        "wpackagist-plugin/acf-extended": ">=0.8.9.4"
+    {
+      "name": "Whitespace",
+      "email": "code@whitespace.se"
     }
+  ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/helsingborg-stad/acf-export-manager.git"
+    },
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org",
+      "only": [
+        "wpackagist-plugin/*"
+      ]
+    }
+  ],
+  "require": {
+    "php": "^8.0",
+    "composer/installers": "^2.2",
+    "helsingborg-stad/acf-export-manager": ">=1.0.0",
+    "ooksanen/acf-focuspoint": "^1.2.1",
+    "helsingborg-stad/acf-select-image-field": "~1.4.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Modularity\\": "source/php/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
+    }
+  },
+  "extra": {
+    "installer-name": "modularity",
+    "installer-paths": {
+      "vendor/{$vendor}/{$name}/": [
+        "vendor:wpackagist-plugin",
+        "type:wordpress-plugin",
+        "type:wordpress-muplugin"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "phpunit --testdox --no-coverage",
+    "test:coverage": "XDEBUG_MODE=coverage phpunit --testdox"
+  },
+  "suggest": {
+    "clark-nikdel-powell/post-type-select-for-acf": "Required by Modularity",
+    "enshrined/svg-sanitize": "Required by Modularity",
+    "helsingborg-stad/component-library": "Required for modules in modularity",
+    "jeradin/acf-dynamic-table-field": "Required by Modularity",
+    "jeradin/acf-website-field": "Required by Modularity",
+    "johannheyne/advanced-custom-fields-table-field": "Required by Modularity"
+  },
+  "require-dev": {
+    "10up/wp_mock": "dev-trunk#1.0.1",
+    "php-mock/php-mock-mockery": "^1.4",
+    "wpackagist-plugin/acf-extended": ">=0.8.9.4"
+  }
 }
