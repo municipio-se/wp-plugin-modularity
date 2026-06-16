@@ -1,6 +1,15 @@
 # Modularity Plugin
 
-This plugin is a [Municipio LTS](https://github.com/municipio-se/municipio-lts) version of the [Modularity plugin](https://github.com/helsingborg-stad/Modularity).
+This plugin is a [Municipio LTS](https://github.com/municipio-se/municipio-lts)
+version of Helsingborg stad's
+[Modularity plugin](https://github.com/helsingborg-stad/Modularity).
+
+## Fork Base
+
+This LTS fork is based on upstream tag
+[`6.16.5`](https://github.com/helsingborg-stad/Modularity/tree/6.16.5),
+commit
+[`142405e`](https://github.com/helsingborg-stad/Modularity/commit/142405e5921582cbcd6ae12bab07bd171924e6fe).
 
 ## Changes in this Fork
 
