@@ -20,6 +20,18 @@ class ManualInput extends \Modularity\Module
         $this->description = __("Creates manual input content.", 'modularity');
 
         add_filter('Modularity/Block/Data', array($this, 'blockData'), 50, 3);
+        add_action('acf/input/admin_enqueue_scripts', [$this, 'enqueueLinkPicker']);
+    }
+
+    public function enqueueLinkPicker(): void
+    {
+        wp_enqueue_script(
+            'manual-input-link-picker',
+            plugins_url('link-picker.js', __FILE__),
+            ['acf-input', 'wplink'],
+            (string) filemtime(__DIR__ . '/link-picker.js'),
+            true
+        );
     }
 
     public function data(): array
