@@ -5,6 +5,7 @@
     @if (!empty($manualInputs))
         @foreach ($manualInputs as $input)
             @collection__item([
+                'attributeList' => ['target' => $input['linkTarget'] ?? null],
                 'link' => $input['link'],
                 'classList' => [$input['columnSize']],
                 'context' => $context,

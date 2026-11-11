@@ -48,8 +48,12 @@ class ManualInput extends \Modularity\Module
                 });
                 $arr                            = array_merge($this->getManualInputDefaultValues(), $input);
                 if (!empty($arr['link']) && is_array($arr['link'])) {
+                    $arr['link_target'] = $arr['link']['target'] ?? '';
                     $arr['link'] = $arr['link']['url'] ?? '';
                 }
+                $arr['link_target'] = in_array($arr['link_target'], ['_blank', '_self', '_parent', '_top'], true)
+                    ? $arr['link_target'] : '';
+
                 $arr['isHighlighted']           = $this->canBeHighlighted($fields, $index);
                 $arr['image']                   = $this->getImageData($arr['image'], $imageSize);
                 $arr['accordion_column_values'] = $this->createAccordionTitles($arr['accordion_column_values'], $arr['title']);
@@ -73,6 +77,7 @@ class ManualInput extends \Modularity\Module
             'title'                     => null,
             'content'                   => null,
             'link'                      => null,
+            'link_target'               => '',
             'link_text'                 => __("Read more", 'modularity'),
             'image'                     => null,
             'accordion_column_values'   => [],

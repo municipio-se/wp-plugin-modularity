@@ -1,4 +1,5 @@
 @block([
+        'attributeList' => ['target' => $input['linkTarget'] ?? null],
     'heading'   => $input['title'],
     'content'   => $input['content'],
     'ratio'     => $input['isHighlighted'] ? '16:9' : $ratio,

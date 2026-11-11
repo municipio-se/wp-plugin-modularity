@@ -1,5 +1,6 @@
  <div class="{{$input['columnSize']}}">
     @card([
+        'attributeList' => ['target' => $input['linkTarget'] ?? null],
         'link'              => $input['link'],
         'heading'           => $input['title'],
         'context'           => $context,

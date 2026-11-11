@@ -13,6 +13,7 @@
         ])
             @foreach ($manualInputs as $input)
                 @collection__item([
+                'attributeList' => ['target' => $input['linkTarget'] ?? null],
                     'icon' => 'arrow_forward',
                     'link' => $input['link']
                 ])
